@@ -1,0 +1,43 @@
+# Simple Student Grade Tracker
+
+print("Welcome to the Student Grade Tracker!\n")
+
+# List to store grades
+grades = []
+
+# Input grades from the user
+while True:
+    user_input = input("Enter a grade (or type 'done' to finish): ")
+    if user_input.lower() == 'done':
+        break
+    else:
+        try:
+            grade = float(user_input)
+            grades.append(grade)
+        except ValueError:
+            print("Please enter a valid number for the grade.")
+
+# Check if grades were entered
+if len(grades) > 0:
+    # Calculate average grade
+    average = sum(grades) / len(grades)
+
+    # Determine Grade
+    if average >= 90:
+        Grade = 'A'
+    elif average >= 80:
+        Grade = 'B'
+    elif average >= 70:
+        Grade = 'C'
+    elif average >= 60:
+        Grade = 'D'
+    elif average >= 50:
+        Grade = 'E'
+    else:
+      Grade = 'F'
+
+    # Print results
+    print(f"\nAverage Grade: {average:.2f}")
+    print(f" Grade: {Grade}")
+else:
+    print("No grades were entered.")
